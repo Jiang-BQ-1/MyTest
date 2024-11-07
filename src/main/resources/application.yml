@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: MyTest
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8080
+
+mybatis:
+  configuration:
+    #mapUnderscoreToCamelCase: true #开启驼峰命名法  如果开启驼峰命名法，
+    # 数据库表字段为user_name，实体类属性为必须为userName、否则会报错
+    useColumnLabel: true
+    catch-enabled: true     #开启二级缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    lazy-loading-enabled: true
+    use-generated-keys: true #
+  mapper-locations: classpath:com.example.mytest.dao/*.xml
+
+
+
